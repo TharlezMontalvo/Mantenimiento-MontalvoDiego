@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
+
 // -------------------------------------------------------------------------
 /**
  * The panel that represents the Chess game board. Contains a few methods that
