@@ -281,4 +281,5 @@ public class ChessGameBoard extends JPanel{
         public void mouseReleased( MouseEvent e ){ /* not used */
         }
     }
+    
 }

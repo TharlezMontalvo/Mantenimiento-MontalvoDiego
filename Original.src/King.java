@@ -8,24 +8,19 @@ public class King extends ChessGamePiece{
 
     @Override
     protected ArrayList<String> calculatePossibleMoves(ChessGameBoard board){
-        ArrayList<String> northEastMoves = calculateNorthEastMoves(board, 1);
-        ArrayList<String> northWestMoves = calculateNorthWestMoves(board, 1);
-        ArrayList<String> southEastMoves = calculateSouthEastMoves(board, 1);
-        ArrayList<String> southWestMoves = calculateSouthWestMoves(board, 1);
-        ArrayList<String> northMoves = calculateNorthMoves(board, 1);
-        ArrayList<String> southMoves = calculateSouthMoves(board, 1);
-        ArrayList<String> eastMoves = calculateEastMoves(board, 1);
-        ArrayList<String> westMoves = calculateWestMoves(board, 1);
-        ArrayList<String> allMoves = new ArrayList<>();
-        allMoves.addAll(northEastMoves);
-        allMoves.addAll(northWestMoves);
-        allMoves.addAll(southWestMoves);
-        allMoves.addAll(southEastMoves);
-        allMoves.addAll(northMoves);
-        allMoves.addAll(southMoves);
-        allMoves.addAll(westMoves);
-        allMoves.addAll(eastMoves);
-        return allMoves;
+        ArrayList<String> possibleMoves = new ArrayList<>();
+        
+        // Add all possible moves in different directions to the ArrayList
+        possibleMoves.addAll(calculateNorthEastMoves(board, 1));
+        possibleMoves.addAll(calculateNorthWestMoves(board, 1));
+        possibleMoves.addAll(calculateSouthEastMoves(board, 1));
+        possibleMoves.addAll(calculateSouthWestMoves(board, 1));
+        possibleMoves.addAll(calculateNorthMoves(board, 1));
+        possibleMoves.addAll(calculateSouthMoves(board, 1));
+        possibleMoves.addAll(calculateEastMoves(board, 1));
+        possibleMoves.addAll(calculateWestMoves(board, 1));
+        
+        return possibleMoves;
     }
 
     public boolean isChecked(ChessGameBoard board){
@@ -34,20 +29,13 @@ public class King extends ChessGamePiece{
 
     @Override
     public ImageIcon createImageByPieceType(){
+        String imagePath = "chessImages/default-Unassigned.gif";
         if (getColorOfPiece() == ChessGamePiece.WHITE){
-            return new ImageIcon(
-                getClass().getResource("chessImages/WhiteKing.gif")
-            );            
+            imagePath = "chessImages/WhiteKing.gif";            
         }
         else if (getColorOfPiece() == ChessGamePiece.BLACK){
-            return new ImageIcon(
-                getClass().getResource("chessImages/BlackKing.gif" )
-            );            
+            imagePath = "chessImages/BlackKing.gif";            
         }
-        else {
-            return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif" )
-            );            
-        }
+        return new ImageIcon(getClass().getResource(imagePath));
     }
 }

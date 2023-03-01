@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import java.util.List;
+
 // -------------------------------------------------------------------------
 /**
  * Abstract class that is used to represent a game piece on the chess board.
@@ -279,14 +281,13 @@ public abstract class ChessGamePiece{
                 }
                 else if ( isEnemy( board, pieceRow - i, pieceColumn - i ) ){
                     moves.add( ( pieceRow - i ) + "," + ( pieceColumn - i ) );
-                    count++;
                     break;
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     break;
+                    }
                 }
-            }
         }
         return moves;
     }
@@ -316,14 +317,13 @@ public abstract class ChessGamePiece{
                 }
                 else if ( isEnemy( board, pieceRow - i, pieceColumn + i ) ){
                     moves.add( ( pieceRow - i ) + "," + ( pieceColumn + i ) );
-                    count++;
                     break;
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     break;
+                    }
                 }
-            }
         }
         return moves;
     }
@@ -353,14 +353,13 @@ public abstract class ChessGamePiece{
                 }
                 else if ( isEnemy( board, pieceRow + i, pieceColumn - i ) ){
                     moves.add( ( pieceRow + i ) + "," + ( pieceColumn - i ) );
-                    count++;
                     break;
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     break;
+                    }
                 }
-            }
         }
         return moves;
     }
@@ -390,14 +389,13 @@ public abstract class ChessGamePiece{
                 }
                 else if ( isEnemy( board, pieceRow + i, pieceColumn + i ) ){
                     moves.add( ( pieceRow + i ) + "," + ( pieceColumn + i ) );
-                    count++;
                     break;
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     break;
+                    }
                 }
-            }
         }
         return moves;
     }
@@ -702,8 +700,8 @@ public abstract class ChessGamePiece{
      * @param board the game board to check on
      * @return ArrayList<GamePiece> the list of attackers
      */
-    public ArrayList<ChessGamePiece> getCurrentAttackers( ChessGameBoard board ){
-        ArrayList<ChessGamePiece> attackers = new ArrayList<ChessGamePiece>();
+    public List<ChessGamePiece> getCurrentAttackers( ChessGameBoard board ){
+        ArrayList<ChessGamePiece> attackers = new ArrayList<>();
         int enemyColor =
             ( this.getColorOfPiece() == ChessGamePiece.BLACK )
                 ? ChessGamePiece.WHITE

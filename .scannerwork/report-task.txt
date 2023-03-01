@@ -1,6 +1,6 @@
-projectKey=AjedrezTarea1.5
+projectKey=AjedrezTarea1.17
 serverUrl=http://localhost:9000
 serverVersion=9.5.0.56709
-dashboardUrl=http://localhost:9000/dashboard?id=AjedrezTarea1.5
-ceTaskId=AYaKqbyHy8kNR7BUDZNH
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYaKqbyHy8kNR7BUDZNH
+dashboardUrl=http://localhost:9000/dashboard?id=AjedrezTarea1.17
+ceTaskId=AYafDcvHwFpuj0mOkKEg
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYafDcvHwFpuj0mOkKEg

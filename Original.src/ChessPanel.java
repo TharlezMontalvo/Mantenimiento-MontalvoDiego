@@ -16,7 +16,7 @@ public class ChessPanel
     private ChessGameLog    gameLog;
     private ChessGraveyard  playerOneGraveyard;
     private ChessGraveyard  playerTwoGraveyard;
-    private ChessGameEngine gameEngine;
+    private transient ChessGameEngine gameEngine;
     // ----------------------------------------------------------
     /**
      * Create a new ChessPanel object.
@@ -25,7 +25,7 @@ public class ChessPanel
         this.setLayout( new BorderLayout() );
         menuBar = new ChessMenuBar();
         gameBoard = new ChessGameBoard();
-        gameLog = new ChessGameLog();
+        gameLog = ChessGameLog.getInstance();
         playerOneGraveyard = new ChessGraveyard( "Player 1's graveyard" );
         playerTwoGraveyard = new ChessGraveyard( "Player 2's graveyard" );
         this.add( menuBar, BorderLayout.NORTH );

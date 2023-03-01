@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 // -------------------------------------------------------------------------
 /**
  * Shows the GUI for the Chess game.
@@ -16,11 +17,12 @@ public class ChessMain{
      * @param args
      *            command line arguments, not used
      */
-    public static void main( String[] args ){
-        JFrame frame = new JFrame( "YetAnotherChessGame 1.0" );
-        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        frame.getContentPane().add( new ChessPanel() );
-        frame.pack();
-        frame.setVisible( true );
-    }
+    
+public static void main( String[] args ){
+    JFrame frame = new JFrame( "YetAnotherChessGame 1.0" );
+    frame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+    frame.getContentPane().add( new ChessPanel() );
+    frame.pack();
+    frame.setVisible( true );
+}
 }
