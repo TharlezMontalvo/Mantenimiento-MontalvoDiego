@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.MouseEvent;
@@ -17,8 +18,9 @@ import java.awt.GridLayout;
  * @version 2010.11.17
  */
 public class ChessGameBoard extends JPanel{
+    private static ChessGameBoard instance = null;
     private BoardSquare[][] chessCells;
-    private transient BoardListener   listener;
+    private transient BoardListener listener;
     // ----------------------------------------------------------
     /**
      * Returns the entire board.
@@ -107,15 +109,19 @@ public class ChessGameBoard extends JPanel{
         }
         return blackPieces;
     }
-    // ----------------------------------------------------------
-    /**
-     * Create a new ChessGameBoard object.
-     */
-    public ChessGameBoard(){
-        this.setLayout( new GridLayout( 8, 8, 1, 1 ) );
+    
+    ChessGameBoard() {
+        this.setLayout(new GridLayout(8, 8, 1, 1));
         listener = new BoardListener();
         chessCells = new BoardSquare[8][8];
         initializeBoard();
+    }
+    
+    public static ChessGameBoard getInstance() {
+        if (instance == null) {
+            instance = new ChessGameBoard();
+        }
+        return instance;
     }
     // ----------------------------------------------------------
     /**

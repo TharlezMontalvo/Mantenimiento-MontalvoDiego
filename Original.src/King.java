@@ -1,3 +1,4 @@
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ public class King extends ChessGamePiece{
     }
 
     public boolean isChecked(ChessGameBoard board){
-        return getCurrentAttackers(board).size() > 0;
+        return !getCurrentAttackers(board).isEmpty();
     }
 
     @Override

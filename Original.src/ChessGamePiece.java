@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -135,19 +136,17 @@ public abstract class ChessGamePiece{
         int numMoves ){
         ArrayList<String> moves = new ArrayList<>();
         int count = 0;
-        if ( isPieceOnScreen() ){
-            for ( int i = pieceRow + 1; i < 8 && count < numMoves; i++ ){
-                if ( ( board.getCell( i, pieceColumn ).getPieceOnSquare()
-                    == null || isEnemy( board, i, pieceColumn ) ) ){
-                    moves.add( i + "," + pieceColumn );
+        if (isPieceOnScreen()) {
+            boolean foundEnemy = false;
+            for (int i = pieceRow + 1; i < 8 && count < numMoves && !foundEnemy; i++) {
+                if (board.getCell(i, pieceColumn).getPieceOnSquare() == null || isEnemy(board, i, pieceColumn)) {
+                    moves.add(i + "," + pieceColumn);
                     count++;
-                    if ( isEnemy( board, i, pieceColumn ) ){
-                        break;
+                    if (isEnemy(board, i, pieceColumn)) {
+                        foundEnemy = true;
                     }
-                }
-                else
-                {
-                    break;
+                } else {
+                    foundEnemy = true;
                 }
             }
         }
@@ -434,14 +433,8 @@ public abstract class ChessGamePiece{
      *            the column to check
      * @return boolean true if the location is valid, false if not
      */
-    public boolean isOnScreen( int row, int col ){
-        if ( row >= 0 && row <= 7 && col >= 0 && col <= 7 ){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+    public boolean isOnScreen(int row, int col) {
+        return (row >= 0 && row <= 7 && col >= 0 && col <= 7);
     }
     // ----------------------------------------------------------
     /**
@@ -674,23 +667,12 @@ public abstract class ChessGamePiece{
             return false;
         }
         if ( this.getColorOfPiece() == ChessGamePiece.WHITE ){
-            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.BLACK ){
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return enemyPiece.getColorOfPiece() == ChessGamePiece.BLACK;
         }
         else
         {
-            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.WHITE ){
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return enemyPiece.getColorOfPiece() == ChessGamePiece.WHITE;
+
         }
     }
     // ----------------------------------------------------------
