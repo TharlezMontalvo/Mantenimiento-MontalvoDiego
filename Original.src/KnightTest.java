@@ -25,4 +25,5 @@ public class KnightTest {
         assertTrue(possibleMoves.contains("5,4"));
         assertTrue(possibleMoves.contains("5,2"));
     }
+    
 }
